@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_employer_employer_form" model="ir.ui.view">
+            <field name="name">employer.employer.form</field>
+            <field name="model">employer.employer</field>
+            <field name="arch" type="xml">
+                <form string="Employer">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="phone_number"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="education"/>
+                            <field name="address"/>
+                            <filed name="employer_id"/>
+                            <field name="customer_ids"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_employer_employer_tree" model="ir.ui.view">
+            <field name="name">employer.employer.tree</field>
+            <field name="model">employer.employer</field>
+            <field name="arch" type="xml">
+                <tree string="Employer">
+                    <field name="name"/>
+                    <field name="phone_number"/>
+                    <field name="gender"/>
+                    <field name="education"/>
+                    <field name="address"/>
+                    <field name="employer_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_employer_employer" model="ir.actions.act_window">
+            <field name="name">employer</field>
+            <field name="res_model">employer.employer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="employer_menu" name="employer" sequence="2" action="action_employer_employer"
+                  parent="sparkbikers_menu"/>
+
+    </data>
+</odoo>
+
+
+
+
+
+
+
+

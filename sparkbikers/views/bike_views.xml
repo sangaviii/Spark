@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_bike_form" model="ir.ui.view">
+            <field name="name">bike.bike.form</field>
+            <field name="model">bike.bike</field>
+            <field name="arch" type="xml">
+                <form string="Bike">
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group>
+                            <field name="bike_name"/>
+                            <field name="customer_id"/>
+                            <field name="email"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_bike_tree" model="ir.ui.view">
+            <field name="name">bike.bike.tree</field>
+            <field name="model">bike.bike</field>
+            <field name="arch" type="xml">
+                <tree string="Bike">
+                    <field name="bike_name"/>
+                    <field name="customer_id"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_bike_bike" model="ir.actions.act_window">
+            <field name="name">bike</field>
+            <field name="res_model">bike.bike</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="sparkbikers_menu" name="sparkbikers" sequence="1"/>
+        <menuitem id="bike_menu" name="bike" sequence="2" action="action_bike_bike"
+                  parent="sparkbikers_menu"/>
+
+    </data>
+</odoo>

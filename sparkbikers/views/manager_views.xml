@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_manager_manager_form" model="ir.ui.view">
+            <field name="name">manager.manager.form</field>
+            <field name="model">manager.manager</field>
+            <field name="arch" type="xml">
+                <form string="Manager">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="name"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="phone_number"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="gender"/>
+                            <field name="education"/>
+                            <field name="address"/>
+                        </group>
+<!--                        <notebook>-->
+<!--                            <page string="Product">-->
+<!--                                <field name="manager_ids">-->
+<!--                                    <tree editable = "bottom">-->
+<!--&lt;!&ndash;                                        <field name="product_id"/>&ndash;&gt;-->
+<!--                                        <field name="manager_id"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                        </notebook>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_manager_manager_tree" model="ir.ui.view">
+            <field name="name">manager.manager.tree</field>
+            <field name="model">manager.manager</field>
+            <field name="arch" type="xml">
+                <tree string="Manager">
+<!--                    <field name="first_name"/>-->
+<!--                    <filed name="last_name"/>-->
+                    <field name="name"/>
+                    <field name="phone_number"/>
+                    <field name="gender"/>
+                    <field name="education"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_manager_manager" model="ir.actions.act_window">
+            <field name="name">manager</field>
+            <field name="res_model">manager.manager</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="manager_menu" name="manager" sequence="2" action="action_manager_manager"
+                  parent="sparkbikers_menu"/>
+
+    </data>
+</odoo>
